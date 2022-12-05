@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <title>chat</title>
+    <style type="text/css" media="all">
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: black;
+        height:100vh;
+        width: 100vw;
+        box-sizing: border-box;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+      }
+      #msg{
+        color: white;
+        font-size: 30px;
+        margin: 20px;
+      }
+      button{
+        color: black;
+        border: none;
+        height: 40px;
+        width: 80px;
+        border-radius: 4px;
+        background-color: white;
+      }
+      #main{
+        display: flex;
+        justify-content: center;
+        align-items:center;
+      }
+    </style>
+  </head>
+  <body>
+  
+  <div id="main">
+    <div onclick="getmsg" id="msg">
+    
+  </div>
+<button onclick="getmsg()">Get Again</button>
+  </div>
+
+  
+ <script type="text/javascript">
+ function getmsg(){
+let msg=document.getElementById("msg");
+ fetch('https://keyvalue.immanuel.co/api/KeyVal/GetValue/xcd0l4kz/sid')
+
+  .then((response) => response.json())
+  .then((data) =>{ 
+    msg.innerHTML=data;
+    console.log(data)});
+}
+
+</script>
+            
+       
+   
+  
+</html>
