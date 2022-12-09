@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+    <title>Chat 1.1</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+    <style type="text/css" media="all">
+
+     *{
+
+       margin: 0px;
+
+       padding: 0px;
+
+     }
+
+     button{
+
+       background-color: whitr;
+
+       color: black;
+
+       min-height: 56px;
+
+       border-radius:10px;
+
+       border: none;
+
+       width:17vw ;
+
+       position: fixed;
+
+       bottom: 10px;
+
+       font-size: 20px;
+
+       font-family: 'Poppins', sans-serif;
+
+       right: 10px;
+
+     }
+
+     button:active,button:hover{
+
+       opacity: 0.7;
+
+     }
+
+     body {
+
+       background: black;
+
+     }
+
+      #msg {
+
+        min-height: 85vh;
+
+        max-height:85vh ;
+
+        overflow-y: scroll;
+
+        border-style: none none dashed none ;
+
+        border-width:0 0 3px 0;
+
+        color:white;
+
+        font-size: 25px;
+
+        padding: 12px;
+
+        font-family: 'Poppins', sans-serif;
+
+       
+
+      
+
+      }
+
+      #d{
+
+        border-radius: 50%;
+
+        background-color: white;
+
+        position: fixed;
+
+        width: 35px;
+
+        height: 35px;
+
+        text-align: center;
+
+        font-weight: 500;
+
+        font-size: 46px;
+
+        padding: 2px;
+
+        right: 17px;
+
+        bottom: 90px;
+
+        
+
+      }
+
+      #d:active,#d:hover{
+
+        opacity: 0.6;
+
+      }
+
+      #input {
+
+        min-height: 50px;
+
+        max-height: 60px;
+
+        font-family: 'Poppins', sans-serif;
+
+        Overflow:auto;
+
+        background-color: hotpink;
+
+        font-size: 25px;
+
+        box-sizing: border-box;
+
+        padding: 10px;
+
+        width: 75vw;
+
+        position: fixed;
+
+        bottom: 0px;
+
+        border-radius: 10px;
+
+        margin-left:10px;
+
+        margin-bottom:10px;
+
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <script type="text/javascript">
+
+      function updateScroll(){
+
+    var element = document.getElementById("msg");
+
+    element.scrollTop = element.scrollHeight;
+
+}
+
+function updateScrolltop(){
+
+    var element = document.getElementById("msg");
+
+    element.scrollTop = 0;
+
+}
+
+      function getValue(appkey, itemkey) {
+
+        $.ajax({
+
+          type: "GET",
+
+          url:
+
+            "https://keyvalue.immanuel.co/api/KeyVal/GetValue/" +
+
+            appkey +
+
+            "/" +
+
+            itemkey,
+
+          contentType: false,
+
+          processData: false,
+
+        })
+
+          .done(function (data) {
+
+           
+
+            let msg=document.getElementById('msg');
+
+            
+
+            const lineBreak = document.createElement('br');
+
+            
+
+            msg.append(data) ;
+
+            msg.appendChild(lineBreak);
+
+            updateScroll();
+
+            
+
+            
+
+          })
+
+          .fail(function (err) {});
+
+      }
+
+      
+
+      function updateValue(appkey, itemkey, itemval) {
+
+        $.ajax({
+
+          type: "POST",
+
+          url:
+
+            "https://keyvalue.immanuel.co/api/KeyVal/UpdateValue/" +
+
+            appkey +
+
+            "/" +
+
+            itemkey +
+
+            "/" +
+
+            itemval,
+
+          contentType: false,
+
+          processData: false,
+
+        })
+
+          .done(function (data) {
+
+            getValue('xcd0l4kz','sid');
+
+          })
+
+          .fail(function (err) {});
+
+      }
+
+      function update(appkey, itemkey){
+
+       let inp =document.getElementById('input'); 
+
+      itemval=inp.innerHTML;
+
+      
+
+      updateValue(appkey, itemkey,itemval);
+
+      inp.innerHTML="";
+
+}
+
+    </script>
+
+    <div id="d" onclick="updateScrolltop()">
+
+      ^
+
+    </div>
+
+    <div id="msg" ></div>
+
+   
+
+    <div id="input" contenteditable="true"></div>
+
+     <button class="send" onclick="update('xcd0l4kz','sid')" >Send</button>
+
+  </body>
+
+</html>
+
