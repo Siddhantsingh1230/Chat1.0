@@ -277,6 +277,41 @@ function updateScrolltop(){
       inp.innerHTML="";
 
 }
+      let old;
+
+ setInterval(function(){
+
+  
+
+ fetch('https://keyvalue.immanuel.co/api/KeyVal/GetValue/2y8etr45/khu')
+
+  .then((response) => response.json())
+
+  .then((data) =>{
+
+    
+
+    console.log(old);
+
+    let msg=document.getElementById('msg');
+
+    const lineBreak = document.createElement('br');
+
+            if(old!=data){
+
+            msg.append(data) ;
+
+            msg.appendChild(lineBreak);
+
+            updateScroll();
+
+            }
+
+            old=data;
+
+   });
+
+ },1000);
 
     </script>
 
