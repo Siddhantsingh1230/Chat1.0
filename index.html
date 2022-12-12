@@ -297,7 +297,7 @@ function updateScrolltop(){
 
     const lineBreak = document.createElement('br');
 
-            if(old!=data){
+            if( old != data && typeof data==='string' ){
 
             msg.append("[")
 
