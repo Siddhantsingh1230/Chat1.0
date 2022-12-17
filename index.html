@@ -237,6 +237,103 @@
   <body>
 
     <script type="text/javascript">
+      function uptype(){
+
+        let appkey="2aiei0jz";
+
+        let itemkey="up";
+
+        let type = document.getElementById('input');
+
+        let itemval;
+
+        if(type===document.activeElement)
+
+        {
+
+          itemval=1;
+
+        }
+
+        else{
+
+          itemval=0;
+
+        }
+
+        
+
+        console.log(itemval);
+
+        $.ajax({
+
+          type: "POST",
+
+          url:
+
+            "https://keyvalue.immanuel.co/api/KeyVal/UpdateValue/" +
+
+            appkey +
+
+            "/" +
+
+            itemkey +
+
+            "/" +
+
+            itemval,
+
+          contentType: false,
+
+          processData: false,
+
+        })
+
+          .done(function (data) {
+
+           
+
+          })
+
+          .fail(function (err) {});
+
+      }
+
+        
+
+      
+
+      function downtype() {
+
+        let type = document.getElementsByClassName("bouncing-loader");
+
+        fetch("https://keyvalue.immanuel.co/api/KeyVal/GetValue/dimip0w6/down")
+
+          .then((response) => response.json())
+
+          .then((data) => {
+
+            if(data==1){
+
+            type[0].style.visibility="visible";
+
+            
+
+            }
+
+           
+
+            else{
+
+            type[0].style.visibility='hidden';
+
+            }
+
+             console.log(data);
+
+          });
+
+      }
 
       function updateScroll(){
 
@@ -393,7 +490,10 @@ function updateScrolltop(){
 
    });
 
- },1000);
+   downtype();
+
+          uptype();
+ },100);
 
     </script>
 
