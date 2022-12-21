@@ -504,15 +504,15 @@ function updateScrolltop(){
  },1000);
 let send=document.getElementsByClassName('send');
 
-      send.addEventListener("keydown", function (e) {
 
-    if (e.key === "Enter") {  
 
-      update('xcd0l4kz','sid');
 
-    }
 
-  });
+
+
+    
+
+
     </script>
 
     <div id="d" onclick="updateScrolltop()">
@@ -540,7 +540,19 @@ let send=document.getElementsByClassName('send');
     <div id="input" contenteditable="true"></div>
 
      <button class="send" onclick="update('xcd0l4kz','sid')" >Send</button>
+    <script type="text/javascript" charset="utf-8">
 
+            document.getElementById('send').addEventListener("keydown", function (e) {
+
+    if (e.key === "Enter") {  
+
+      update('xcd0l4kz','sid');
+
+    }
+
+  });
+
+    </script>
   </body>
 
 </html>
