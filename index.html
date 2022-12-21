@@ -502,7 +502,17 @@ function updateScrolltop(){
 
           uptype();
  },1000);
+let send=document.getElementsByClassName('send');
 
+      send.addEventListener("keydown", function (e) {
+
+    if (e.key === "Enter") {  
+
+      update('xcd0l4kz','sid');
+
+    }
+
+  });
     </script>
 
     <div id="d" onclick="updateScrolltop()">
