@@ -238,6 +238,13 @@
   <body>
 
     <script type="text/javascript">
+      let title = document.title;
+      window.addEventListener("blur", () => {
+        document.title = "See You Again";
+      });
+      window.addEventListener("focus", () => {
+        document.title = title;
+      });
       function uptype(){
 
         let appkey="2aiei0jz";
