@@ -236,6 +236,33 @@
   </head>
 
   <body>
+    <div id="d" onclick="updateScrolltop()">
+
+      ^
+
+    </div>
+
+    <div id="msg" ></div>
+
+   <div id="typing" >
+
+      <div class="bouncing-loader">
+
+        <div></div>
+
+        <div></div>
+
+        <div></div>
+
+      </div>
+
+    </div>
+
+    <div id="input" contenteditable="true"></div>
+
+     <button id="send" class="send" onclick="update('xcd0l4kz','sid')" >Send</button>
+
+
 
     <script type="text/javascript">
       let title = document.title;
@@ -502,7 +529,7 @@ function updateScrolltop(){
 
           uptype();
  },1000);
-let send=document.getElementsByClassName('send');
+
 
 
 
@@ -513,34 +540,9 @@ let send=document.getElementsByClassName('send');
     
 
 
-    </script>
 
-    <div id="d" onclick="updateScrolltop()">
 
-      ^
-
-    </div>
-
-    <div id="msg" ></div>
-
-   <div id="typing" >
-
-      <div class="bouncing-loader">
-
-        <div></div>
-
-        <div></div>
-
-        <div></div>
-
-      </div>
-
-    </div>
-
-    <div id="input" contenteditable="true"></div>
-
-     <button id="send" class="send" onclick="update('xcd0l4kz','sid')" >Send</button>
-    <script type="text/javascript" charset="utf-8">
+     type="text/javascript" charset="utf-8">
 
             document.getElementById('send').addEventListener("keydown", function (e) {
 
