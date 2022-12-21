@@ -451,11 +451,11 @@ function updateScrolltop(){
 
        let inp =document.getElementById('input'); 
 
-      itemval=inp.innerHTML;
+      itemval=inp.innerText;
 
       
 
-      updateValue(appkey, itemkey,itemval);
+      updateValue(appkey, itemkey,itemval.trim());
 
       inp.innerHTML="";
 
