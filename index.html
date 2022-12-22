@@ -530,7 +530,98 @@ function updateScrolltop(){
     <div id="input" contenteditable="true"></div>
 
      <button class="send" onclick="update('xcd0l4kz','sid')" >Send</button>
+    
+<script type="text/javascript" charset="utf-8">
+ function getValue(appkey, itemkey) {
 
+        $.ajax({
+
+          type: "GET",
+
+          url:
+
+            "https://keyvalue.immanuel.co/api/KeyVal/GetValue/" +
+
+            appkey +
+
+            "/" +
+
+            itemkey,
+
+          contentType: false,
+
+          processData: false,
+
+        })
+
+          .done(function (data) {
+
+           
+
+            let msg=document.getElementById('msg');
+
+            
+
+            const lineBreak = document.createElement('br');
+
+            
+
+            msg.append(data) ;
+
+            msg.appendChild(lineBreak);
+
+            updateScroll();
+
+            
+
+            
+
+          })
+
+          .fail(function (err) {});
+
+      }
+      function updateValue(appkey, itemkey, itemval) {
+        $.ajax({
+          type: "POST",
+
+          url:
+            "https://keyvalue.immanuel.co/api/KeyVal/UpdateValue/" +
+            appkey +
+            "/" +
+            itemkey +
+            "/" +
+            itemval,
+
+          contentType: false,
+
+          processData: false,
+        })
+
+          .done(function (data) {
+            getValue('xcd0l4kz','sid');
+          })
+
+          .fail(function (err) {});
+      }
+      function update(appkey, itemkey) {
+        let inp = document.getElementById("input");
+
+        itemval = inp.innerText;
+        console.log(itemval);
+        updateValue(appkey, itemkey, itemval.trim());
+
+        inp.innerHTML = "";
+      }
+      window.addEventListener("keydown", function (e) {
+        console.log(e.key);
+        if (e.keyCode ==13) {
+          event.preventDefault();
+          console.log("entered");
+          update('xcd0l4kz','sid');
+        }
+      });
+    </script>
   </body>
 
 </html>
