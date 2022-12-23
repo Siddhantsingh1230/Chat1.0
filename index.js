@@ -135,7 +135,7 @@ function updateValue(appkey, itemkey, itemval) {
   })
 
     .done(function (data) {
-      getValue(appkey, yourkey);
+      getValue(appkey,itemkey);
     })
 
     .fail(function (err) {});
