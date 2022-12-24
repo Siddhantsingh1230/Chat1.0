@@ -3,11 +3,13 @@ let appkey;
 let itemkey;
 function askKey() {
   appkey = prompt("        Enter Appkey");
+  appkey=appkey.trim();
   if (appkey == null || appkey == "") {
     alert("Error (Appkey) 🚫");
     document.location.reload();
   } else {
     itemkey = prompt("        Enter Your Key");
+    itemkey=itemkey.trim();
     if (itemkey == null || itemkey == "") {
       alert("Error (Item Key)❌ ");
       document.location.reload();
