@@ -1,6 +1,6 @@
 let title = document.title;
-let appkey="xcd0l4kz";
-let itemkey="sid";
+let appkey;
+let itemkey;
 function askKey() {
   appkey = prompt("        Enter Appkey");
   
