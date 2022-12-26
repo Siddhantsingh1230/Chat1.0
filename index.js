@@ -1,21 +1,7 @@
 let title = document.title;
-let appkey;
-let itemkey;
-function askKey() {
-  appkey = prompt("        Enter Appkey");
-  
-  if (appkey == null || appkey == "") {
-    alert("Error (Appkey) 🚫");
-    document.location.reload();
-  } else {
-    itemkey = prompt("        Enter Your Key");
-    
-    if (itemkey == null || itemkey == "") {
-      alert("Error (Item Key)❌ ");
-      document.location.reload();
-    }
-  }
-}
+let appkey="xcd0l4kz";
+let itemkey="sid";
+
 appkey=appkey.trim();
 itemkey=itemkey.trim();
 window.addEventListener("blur", () => {
