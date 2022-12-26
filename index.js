@@ -1,7 +1,7 @@
 let title = document.title;
 let appkey;
 let itemkey;
-function askKey() {
+
   appkey = prompt("        Enter Appkey");
   
   if (appkey == null || appkey == "") {
@@ -15,7 +15,7 @@ function askKey() {
       document.location.reload();
     }
   }
-}
+
 appkey=appkey.trim();
 itemkey=itemkey.trim();
 window.addEventListener("blur", () => {
